@@ -30,3 +30,14 @@ add_custom_command(TARGET ${PROJECT_NAME}
 	COMMAND ${CMAKE_MAKE_PROGRAM} compare_program_outputs
 	COMMENT "Running comparison"
 )
+
+add_custom_command(
+	OUTPUT the_sequence 
+	COMMAND seq 1 10 > the_sequence
+	COMMENT "Generating sequence"
+)
+
+add_custom_target(generate_sequence
+	DEPENDS the_sequence
+	COMMENT "Gen seq command"
+)
